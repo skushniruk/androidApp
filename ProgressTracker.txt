@@ -1,6 +1,7 @@
 MainActivity - 			done
 TeamsActivity - 		done
 SettingsActivity - 		Victor
-DictionaryModeActivity - 	Serhii
+DictionaryModeActivity - 	none  ----- on hold ------
 RatingsActivity - 		Serhii
 RoundActivity - 		none
+CongratulationActivity-		none
