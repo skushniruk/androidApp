@@ -6,10 +6,10 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -45,14 +45,13 @@ public class TeamsAdapter extends BaseAdapter {
 
     public void set(int position, String newTeam) {
         teams.set(position, newTeam);
-        notifyDataSetChanged();
     }
 
     public void remove(int position) {
         teams.remove(position);
         notifyDataSetChanged();
     }
-
+    private boolean deletedFlag = false;
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         String team = (String) getItem(position);
@@ -65,11 +64,19 @@ public class TeamsAdapter extends BaseAdapter {
         teamName.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                set(position, s.toString());
+                if (!deletedFlag) {
+                    String newTeam = s.toString();
+                    if (!newTeam.equals(getItem(position))) {
+                        set(position, newTeam);
+                    }
+                } else {
+                    deletedFlag = false;
+                }
             }
 
             @Override
@@ -78,7 +85,12 @@ public class TeamsAdapter extends BaseAdapter {
             }
         });
         Button deleteButton = convertView.findViewById(R.id.deleteTeam);
-        deleteButton.setOnClickListener(v -> remove(position));
+        deleteButton.setOnClickListener(v -> {
+            InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(deleteButton.getWindowToken(), 0);
+            deletedFlag = true;
+            remove(position);
+        });
         return convertView;
     }
 }

@@ -13,13 +13,11 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".TeamsActivity"
             android:parentActivityName=".MainActivity"
-            android:windowSoftInputMode="adjustPan"
             tools:targetApi="jelly_bean">
         </activity>
     </application>
