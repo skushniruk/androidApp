@@ -1,0 +1,6 @@
+MainActivity - 			done
+TeamsActivity - 		done
+SettingsActivity - 		Victor
+DictionaryModeActivity - 	Serhii
+RatingsActivity - 		Serhii
+RoundActivity - 		none
