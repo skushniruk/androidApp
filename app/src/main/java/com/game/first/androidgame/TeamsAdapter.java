@@ -23,6 +23,11 @@ public class TeamsAdapter extends BaseAdapter {
         this.context = context;
     }
 
+    public TeamsAdapter(Context context, ArrayList<String> teams) {
+        this.context = context;
+        this.teams = teams;
+    }
+
     @Override
     public int getCount() {
         return teams.size();
@@ -51,6 +56,11 @@ public class TeamsAdapter extends BaseAdapter {
         teams.remove(position);
         notifyDataSetChanged();
     }
+
+    protected ArrayList<String> getTeams() {
+        return teams;
+    }
+
     private boolean deletedFlag = false;
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {

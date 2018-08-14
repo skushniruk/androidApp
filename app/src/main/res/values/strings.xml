@@ -2,6 +2,7 @@
     <string name="app_name">AndroidGame</string>
     <string name="teams_activity_title">Команди</string>
     <string name="start_button">СТАРТ</string>
+    <string name="continue_button">ПРОДОВЖИТИ</string>
     <string name="teams_footer">Додати команду</string>
     <string name="team_placeholder">Команда</string>
     <string name="remove_team">Видалити</string>
