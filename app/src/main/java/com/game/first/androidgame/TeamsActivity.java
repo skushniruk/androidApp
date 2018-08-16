@@ -1,13 +1,16 @@
 package com.game.first.androidgame;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -15,14 +18,16 @@ public class TeamsActivity extends AppCompatActivity {
 
     private static final String SAVED_INSTANCE_ARRAY = "saved_teams";
     private static final String FIRST_ELEMENT = "first_element";
+    public static final String GAME_INSTANCE = "game_instance";
 
     TeamsAdapter adapter;
     ListView listView;
+    Button nextButton;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.teams_activity);
+        setContentView(R.layout.activity_teams);
         setTitle(R.string.teams_activity_title);
 
         if (getIntent().getBooleanExtra(MainActivity.CREATE_NEW, true)) {
@@ -32,6 +37,7 @@ public class TeamsActivity extends AppCompatActivity {
         }
 
         listView = findViewById(R.id.list);
+        nextButton = findViewById(R.id.nextButton);
 
         listView.setFooterDividersEnabled(true);
 
@@ -41,6 +47,18 @@ public class TeamsActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
 
         footerView.setOnClickListener(v -> adapter.add(""));
+        nextButton.setOnClickListener(v -> {
+            if (adapter.getCount() < 2) {
+                int duration = Toast.LENGTH_SHORT;
+                Toast toast = Toast.makeText(this, R.string.no_teams_error, duration);
+                toast.show();
+                return;
+            }
+            Game game = new Game(adapter.getTeams());
+            Intent intent = new Intent(this, RatingsActivity.class);
+            intent.putExtra(GAME_INSTANCE, game);
+            startActivity(intent);
+        });
     }
 
     @Override

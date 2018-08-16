@@ -7,11 +7,11 @@
     android:background="@android:color/holo_orange_dark">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/nextButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@android:color/black"
-        android:text="@string/start_game_button"
+        android:text="@string/next_button"
         android:textColor="@android:color/white"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -23,7 +23,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/nextButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

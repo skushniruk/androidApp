@@ -2,6 +2,6 @@ MainActivity - 			done
 TeamsActivity - 		done
 SettingsActivity - 		Victor
 DictionaryModeActivity - 	none  ----- on hold ------
-RatingsActivity - 		Serhii
-RoundActivity - 		none
+RatingsActivity - 		done
+RoundActivity - 		Serhii
 CongratulationActivity-		none

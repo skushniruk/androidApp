@@ -20,6 +20,10 @@
             android:parentActivityName=".MainActivity"
             tools:targetApi="jelly_bean">
         </activity>
+        <activity android:name=".RatingsActivity"
+            android:parentActivityName=".TeamsActivity"
+            tools:targetApi="jelly_bean">
+        </activity>
     </application>
 
 

@@ -7,4 +7,8 @@
     <string name="team_placeholder">Команда</string>
     <string name="remove_team">Видалити</string>
     <string name="start_game_button">Почати гру</string>
+    <string name="next_button">Далі</string>
+    <string name="team_starts_label">Готується команда:</string>
+    <string name="ratings">Загальний рейтинг:</string>
+    <string name="no_teams_error">Створіть, щонайменш, дві команди</string>
 </resources>
