@@ -1,23 +1,30 @@
 package com.game.first.androidgame;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import static com.game.first.androidgame.MainActivity.CREATE_NEW;
+
 public class TeamsActivity extends AppCompatActivity {
 
     private static final String SAVED_INSTANCE_ARRAY = "saved_teams";
     private static final String FIRST_ELEMENT = "first_element";
+    private Button continueGameButton;
 
     TeamsAdapter adapter;
     ListView listView;
+    public boolean isRunBefore = false;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -41,6 +48,12 @@ public class TeamsActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
 
         footerView.setOnClickListener(v -> adapter.add(""));
+
+        continueGameButton.findViewById(R.id.start_game_button);
+        continueGameButton.setOnClickListener(v -> {
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
+        });
     }
 
     @Override

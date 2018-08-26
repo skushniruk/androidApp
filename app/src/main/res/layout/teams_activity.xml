@@ -7,7 +7,7 @@
     android:background="@android:color/holo_orange_dark">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/start_game_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@android:color/black"
@@ -23,9 +23,11 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        android:descendantFocusability="afterDescendants"
+        app:layout_constraintBottom_toTopOf="@+id/start_game_button"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:descendantFocusability="afterDescendants"/>
+        app:layout_constraintVertical_bias="1.0" />
 </android.support.constraint.ConstraintLayout>
