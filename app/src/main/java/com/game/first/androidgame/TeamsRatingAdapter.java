@@ -51,5 +51,6 @@ public class TeamsRatingAdapter extends BaseAdapter {
         teamRatingView.setText(ratings.get(team).toString());
         return convertView;
     }
+
 }
 
