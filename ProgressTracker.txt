@@ -1,9 +1,9 @@
 Components                | Assignee   |    Status   |
 -----------------------------------------------------|
-MainActivity - 		      | Serhii     |     done    |
-TeamsActivity - 		  | Serhii     |     done    |
-SettingsActivity - 		  | Viktor     | in progress |
-DictionaryModeActivity -  |	 none      |  to be done |
-RatingsActivity - 		  | Serhii     |  to be done |
-RoundActivity - 		  |	 none      |  to be done |
-CongratulationActivity-	  |	 none      |  to be done |
+MainActivity - 		      | Serhii     |     done
+TeamsActivity - 		  | Serhii     |     done
+SettingsActivity - 		  | Viktor     | in progress
+DictionaryModeActivity -  |	 none      |  to be done
+RatingsActivity - 		  |  Serhii    |     done
+RoundActivity - 		  |	 Serhii    |     done
+CongratulationActivity-	  |	 Serhii    | in progress
