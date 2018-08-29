@@ -1,6 +1,5 @@
 package com.game.first.androidgame;
 
-import android.content.Intent;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -10,7 +9,7 @@ import java.util.Map;
 
 public class Game implements Parcelable {
 
-    private int roundTime = 60;
+    private int roundTime = 10;
     private ArrayList<String> teams;
     private ArrayList<Integer> ratings;
     private int currentTeamId = 0;
@@ -30,6 +29,10 @@ public class Game implements Parcelable {
         ratings = in.readArrayList(Integer.class.getClassLoader());
     }
 
+    public Integer getRoundTime() {
+        return roundTime;
+    }
+
     public Map<String, Integer> getTeamsAndRatings() {
         HashMap<String, Integer> teamsAndRatings = new HashMap<>();
         for (int i = 0; i < teams.size(); i++) {
@@ -44,6 +47,14 @@ public class Game implements Parcelable {
 
     public String getCurrentTeam() {
         return teams.get(currentTeamId);
+    }
+
+    public void setRatingForCurrentTeam(int rating) {
+        ratings.set(currentTeamId, rating);
+    }
+
+    public int getRatingForCurrentTeam() {
+        return ratings.get(currentTeamId);
     }
 
     public String getNextTeam() {

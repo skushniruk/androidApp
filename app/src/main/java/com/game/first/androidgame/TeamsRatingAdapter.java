@@ -22,6 +22,10 @@ public class TeamsRatingAdapter extends BaseAdapter {
         this.gameInstance = gameInstance;
     }
 
+    public void setGameInstance(Game game) {
+        gameInstance = game;
+    }
+
     @Override
     public int getCount() {
         return teams.size();

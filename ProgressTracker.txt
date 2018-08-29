@@ -3,5 +3,5 @@ TeamsActivity - 		done
 SettingsActivity - 		Victor
 DictionaryModeActivity - 	none  ----- on hold ------
 RatingsActivity - 		done
-RoundActivity - 		Serhii
-CongratulationActivity-		none
+RoundActivity - 		done
+CongratulationActivity-		Serhii

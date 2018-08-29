@@ -39,7 +39,7 @@ public class RatingsActivity extends AppCompatActivity {
         startRoundButton.setOnClickListener(v -> {
             Intent intent = new Intent(this, RoundActivity.class);
             intent.putExtra(TeamsActivity.GAME_INSTANCE, gameInstance);
-            startActivity(intent);
+            startActivityForResult(intent, 1);
         });
     }
 
@@ -54,4 +54,14 @@ public class RatingsActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(menuItem);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK) {
+            gameInstance = data.getParcelableExtra(TeamsActivity.GAME_INSTANCE);
+            adapter.setGameInstance(gameInstance);
+            adapter.notifyDataSetChanged();
+            currentTeam.setText(gameInstance.getNextTeam());
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
 }
