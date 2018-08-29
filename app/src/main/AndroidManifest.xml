@@ -20,8 +20,12 @@
             android:parentActivityName=".MainActivity"
             tools:targetApi="jelly_bean">
         </activity>
-        <activity android:name=".RatingsActivity"
+        <activity android:name=".SettingsActivity"
             android:parentActivityName=".TeamsActivity"
+            tools:targetApi="jelly_bean">
+        </activity>
+        <activity android:name=".RatingsActivity"
+            android:parentActivityName=".SettingsActivity"
             tools:targetApi="jelly_bean">
         </activity>
         <activity android:name=".RoundActivity"

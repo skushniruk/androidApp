@@ -2,6 +2,7 @@
     <string name="app_name">AndroidGame</string>
     <string name="teams_activity_title">Команди</string>
     <string name="team_rating_title">Рейтинг</string>
+    <string name="settings_activity_title">Налаштування</string>
     <string name="start_button">СТАРТ</string>
     <string name="continue_button">ПРОДОВЖИТИ</string>
     <string name="teams_footer">Додати команду</string>
@@ -13,4 +14,5 @@
     <string name="ratings">Загальний рейтинг:</string>
     <string name="no_teams_error">Створіть, щонайменш, дві команди</string>
     <string name="start_round">Почати раунд</string>
+    <string name="next_game_button">Далі</string>
 </resources>

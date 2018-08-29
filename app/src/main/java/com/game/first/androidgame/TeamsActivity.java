@@ -14,11 +14,14 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import static com.game.first.androidgame.MainActivity.CREATE_NEW;
+
 public class TeamsActivity extends AppCompatActivity {
 
     private static final String SAVED_INSTANCE_ARRAY = "saved_teams";
     private static final String FIRST_ELEMENT = "first_element";
     public static final String GAME_INSTANCE = "game_instance";
+
 
     TeamsAdapter adapter;
     ListView listView;
@@ -55,7 +58,7 @@ public class TeamsActivity extends AppCompatActivity {
                 return;
             }
             Game game = new Game(adapter.getTeams());
-            Intent intent = new Intent(this, RatingsActivity.class);
+            Intent intent = new Intent(this, SettingsActivity.class);
             intent.putExtra(GAME_INSTANCE, game);
             startActivity(intent);
         });
