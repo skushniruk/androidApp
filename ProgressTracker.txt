@@ -6,4 +6,4 @@ SettingsActivity - 	  | Viktor     | in progress
 DictionaryModeActivity -  |  none      |  to be done
 RatingsActivity - 	  |  Serhii    |     done
 RoundActivity - 	  |  Serhii    |     done
-CongratulationActivity-	  |  Serhii    | in progress
+CongratulationActivity-	  |  Serhii    |     done

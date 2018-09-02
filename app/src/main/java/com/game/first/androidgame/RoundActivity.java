@@ -57,10 +57,16 @@ public class RoundActivity extends AppCompatActivity {
                 int currentRating = gameInstance.getRatingForCurrentTeam();
                 gameInstance.setRatingForCurrentTeam(currentRating + gameInstance.getNumOfGuesedWords()
                         - gameInstance.getNumOfSkippedWords());
-                Intent intent = new Intent();
-                intent.putExtra(TeamsActivity.GAME_INSTANCE, gameInstance);
-                setResult(RESULT_OK, intent);
-                finish();
+                if (gameInstance.isThisFinalRound()) {
+                    Intent intent = new Intent(RoundActivity.this, CongratulationActivity.class);
+                    intent.putExtra(TeamsActivity.GAME_INSTANCE, gameInstance);
+                    startActivityForResult(intent, 1);
+                } else {
+                    Intent intent = new Intent();
+                    intent.putExtra(TeamsActivity.GAME_INSTANCE, gameInstance);
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
             }
         };
         thread.start();
@@ -106,5 +112,16 @@ public class RoundActivity extends AppCompatActivity {
             }
         }
         return super.onOptionsItemSelected(menuItem);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK) {
+            gameInstance = data.getParcelableExtra(TeamsActivity.GAME_INSTANCE);
+            Intent intent = new Intent();
+            intent.putExtra(TeamsActivity.GAME_INSTANCE, gameInstance);
+            setResult(RESULT_OK, intent);
+            finish();
+        }
     }
 }

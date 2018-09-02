@@ -9,20 +9,25 @@ import java.util.Map;
 
 public class Game implements Parcelable {
 
-    private int roundTime = 10;
+    private int roundTime = 5;
+    private int maxNumOfRounds = 1;
+    private int currentRound;
     private ArrayList<String> teams;
     private ArrayList<Integer> ratings;
     private int currentTeamId = 0;
-    private ArrayList<String> currentGuesedWords;
+    private ArrayList<String> currentGuessedWords;
     private ArrayList<String> currentSkippedWords;
 
     public Game(ArrayList<String> teams) {
         this.teams = teams;
+        currentRound = 1;
         initializeRatings(teams);
     }
     //the constructor to recreate object
     protected Game(Parcel in) {
         roundTime = in.readInt();
+        maxNumOfRounds = in.readInt();
+        currentRound = in.readInt();
         currentTeamId = in.readInt();
         teams = in.createStringArrayList();
         ratings = new ArrayList<>();
@@ -60,19 +65,49 @@ public class Game implements Parcelable {
     public String getNextTeam() {
         if (currentTeamId >= teams.size() - 1) {
             currentTeamId = 0;
+            currentRound++;
         } else {
             currentTeamId++;
         }
-        currentGuesedWords = new ArrayList<>();
+        currentGuessedWords = new ArrayList<>();
         currentSkippedWords = new ArrayList<>();
         return getCurrentTeam();
     }
 
-    public void guesWord(String word) {
-        if (currentGuesedWords == null) {
-            currentGuesedWords = new ArrayList<>();
+    public boolean isThisFinalRound() {
+        if (currentTeamId >= teams.size() - 1 && currentRound >= maxNumOfRounds)
+            return true;
+        else
+            return false;
+    }
+
+    public String getWinner() {
+        if (ratings.size() < 1)
+            return null;
+        int maxRating = ratings.get(0);
+        int pos = 0;
+        for (int i = 0; i < ratings.size(); i++) {
+            if (maxRating < ratings.get(i)) {
+                maxRating = ratings.get(i);
+                pos = i;
+            }
         }
-        currentGuesedWords.add(word);
+        return teams.get(pos);
+    }
+
+    public int getMaxNumOfRounds() {
+        return maxNumOfRounds;
+    }
+
+    public void setMaxNumOfRounds(int newValue) {
+        maxNumOfRounds = newValue;
+    }
+
+    public void guesWord(String word) {
+        if (currentGuessedWords == null) {
+            currentGuessedWords = new ArrayList<>();
+        }
+        currentGuessedWords.add(word);
     }
 
     public void skipWord(String word) {
@@ -83,10 +118,10 @@ public class Game implements Parcelable {
     }
 
     public Integer getNumOfGuesedWords() {
-        if (currentGuesedWords == null) {
+        if (currentGuessedWords == null) {
             return 0;
         }
-        return currentGuesedWords.size();
+        return currentGuessedWords.size();
     }
 
     public Integer getNumOfSkippedWords() {
@@ -97,7 +132,7 @@ public class Game implements Parcelable {
     }
 
     public ArrayList<String> getGuessedWords() {
-        return currentGuesedWords;
+        return currentGuessedWords;
     }
 
     public ArrayList<String> getSkippedWords() {
@@ -119,6 +154,8 @@ public class Game implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(roundTime);
+        dest.writeInt(maxNumOfRounds);
+        dest.writeInt(currentRound);
         dest.writeInt(currentTeamId);
         dest.writeStringList(teams);
         dest.writeList(ratings);

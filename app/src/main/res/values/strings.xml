@@ -15,4 +15,8 @@
     <string name="no_teams_error">Створіть, щонайменш, дві команди</string>
     <string name="start_round">Почати раунд</string>
     <string name="next_game_button">Далі</string>
+    <string name="congratulation_label">Вітання</string>
+    <string name="winner_label">Перемогла команда:</string>
+    <string name="new_game">НОВА ГРА</string>
+    <string name="once_more_round_text">ЩЕ ОДИН РАУНД</string>
 </resources>

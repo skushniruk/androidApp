@@ -32,6 +32,10 @@
             android:parentActivityName=".RatingsActivity"
             tools:targetApi="jelly_bean">
         </activity>
+        <activity android:name=".CongratulationActivity"
+            android:parentActivityName=".RoundActivity"
+            tools:targetApi="jelly_bean">
+        </activity>
     </application>
 
 
