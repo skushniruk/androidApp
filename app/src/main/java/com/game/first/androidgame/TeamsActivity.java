@@ -58,6 +58,7 @@ public class TeamsActivity extends AppCompatActivity {
                 return;
             }
             Game game = new Game(adapter.getTeams());
+            DictionarySingleton.getInstance(getApplicationContext()).reInitializeDictionary();
             Intent intent = new Intent(this, SettingsActivity.class);
             intent.putExtra(GAME_INSTANCE, game);
             startActivity(intent);

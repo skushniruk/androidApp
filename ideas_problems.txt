@@ -1,0 +1,2 @@
+﻿add possibility to get explanation for a word(from wikipedia)
+add logic for draw(нічия)

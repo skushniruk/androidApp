@@ -20,6 +20,7 @@ public class RoundActivity extends AppCompatActivity {
     TextView timeLeftLabel;
     Game gameInstance;
     Integer roundTime;
+    DictionarySingleton dictionary;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -30,9 +31,11 @@ public class RoundActivity extends AppCompatActivity {
         numOfSkippedWords = findViewById(R.id.skippedWords);
         timeLeftLabel = findViewById(R.id.timeLeft);
         gameInstance = getIntent().getParcelableExtra(TeamsActivity.GAME_INSTANCE);
+        dictionary = DictionarySingleton.getInstance(getApplicationContext());
 
         roundTime = gameInstance.getRoundTime();
 
+        currentWordTextView.setText(dictionary.getRandomWord());
         numOfGuessedWords.setText(gameInstance.getNumOfGuesedWords().toString());
         numOfSkippedWords.setText(gameInstance.getNumOfSkippedWords().toString());
         timeLeftLabel.setText(roundTime.toString());
@@ -97,6 +100,7 @@ public class RoundActivity extends AppCompatActivity {
                     numOfSkippedWords.setText(gameInstance.getNumOfSkippedWords().toString());
                 }
                 currentWordTextView.setVisibility(View.VISIBLE);
+                currentWordTextView.setText(dictionary.getRandomWord());
                 return true;
             } else {
                 return false;
